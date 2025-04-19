@@ -1,4 +1,4 @@
-# menu de opções
+# menu de opções / 00-Fundamentos-string_4
 menu = """
 [d] Depositar
 [s] Sacar
@@ -7,13 +7,14 @@ menu = """
 
 => """
 
-# iniciando variáveis
+# iniciando variáveis / 00-Fundamentos
 saldo = 0    # Saldo inicial
 limite = 500    # Limite do saques
 extrato = ""    # Extrato
 numero_saques = 0    # Contador de saques
 LIMITE_SAQUES = 3    # Limite máximo de saques
 
+# 05-Funçoes / 01_retorno_da_fução
 def formatar_valor(valor):
     # valor em reais
     return f"R$ {valor:.2f}"
@@ -25,8 +26,8 @@ def validar_valor(valor_input):
         return float(valor_input)
     return None
 
+# deposito e regra
 def deposito(saldo, extrato):
-    # deposito e regra
     valor_input = input("Informe o valor do depósito: ")
     valor = validar_valor(valor_input)
 
@@ -39,12 +40,13 @@ def deposito(saldo, extrato):
 
     return saldo, extrato
 
+# saque e regra
 def saque(saldo, extrato, numero_saques):
-    # saque e regra
     valor_input = input("Informe o valor do saque: ")
     valor = validar_valor(valor_input)
 
     # se não é None
+    # 00-Fundamentos / estrutura_repetição_while
     if valor is not None:
         # se excede o saldo
         excedeu_saldo = valor > saldo
@@ -83,9 +85,11 @@ def saque(saldo, extrato, numero_saques):
     return saldo, extrato, numero_saques
 
 # logica do menu
+# 00-Fundamentos / estrutura_repetição_while
 while True:
     opcao = input(menu)
 
+    # 00-Fundamentos / estrutura_condicionada_aninhada
     if opcao == "d":
         saldo, extrato = deposito(saldo, extrato)
 
